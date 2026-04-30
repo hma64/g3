@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tous les produits — GCA styMode</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body id="catalogPage">
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu"><span></span></button>
+      <a class="logo" href="index.html">
+        <img src="assets/logo-gca.png" width="48" height="48" alt="GCA styMode" />
+        <span>GCA</span> styMode
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" id="navHome">Accueil</a></li>
+        <li><a href="produits.html" id="navShop">Boutique</a></li>
+        <li><a href="index.html#categories" id="navCategories">Catégories</a></li>
+        <li><a href="index.html#contact" id="navContact">Contact</a></li>
+        <li><a href="produits.html" id="btnAllProducts">Voir tous les produits</a></li>
+        <li class="nav-lang-mobile">
+          <button type="button" class="lang-option nav-lang-opt" data-lang="fr" id="navLangFr">Français</button>
+          <button type="button" class="lang-option nav-lang-opt" data-lang="ar" id="navLangAr">العربية</button>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button type="button" class="lang-toggle" id="langToggleBtn">Français</button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" class="lang-option" data-lang="fr" id="langOptionFr">Français</button>
+            <button type="button" class="lang-option" data-lang="ar" id="langOptionAr">العربية</button>
+          </div>
+        </div>
+        <button class="cart-btn" id="openCartBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16" style="flex-shrink:0"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span id="cartLabelText">Panier</span> (<span id="cartCount">0</span>)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="catalog">
+    <section class="catalog-hero">
+      <div class="container">
+        <h1 class="section-title reveal" id="pageCatalogTitle">Tous les <span>produits</span></h1>
+        <p class="section-subtitle reveal" id="pageCatalogSub"></p>
+      </div>
+    </section>
+
+    <section class="catalog-body">
+      <div class="container">
+        <div class="shop-toolbar reveal">
+          <input class="search-input" id="searchInput" type="search" placeholder="" />
+          <button type="button" class="layout-kebab" id="layoutKebab" aria-label="Vue liste" title="Vue liste / grille">
+            <span class="layout-kebab-dot"></span>
+            <span class="layout-kebab-dot"></span>
+            <span class="layout-kebab-dot"></span>
+          </button>
+        </div>
+        <div class="price-filter reveal">
+          <div class="price-filter-head">
+            <span id="priceFilterLabel">Fourchette de prix</span>
+            <button type="button" class="preview-toggle" id="priceResetBtn">Reset</button>
+          </div>
+          <div class="price-values">
+            <input class="price-input" id="priceMinInput" min="0" step="1" type="number" value="0" />
+            <div class="price-divider">-</div>
+            <input class="price-input" id="priceMaxInput" min="0" step="1" type="number" value="0" />
+          </div>
+          <div class="range-wrap">
+            <div class="range-track"></div>
+            <div class="range-progress" id="rangeProgress"></div>
+            <input class="price-range" id="priceMinRange" max="1000" min="0" step="1" type="range" value="0" />
+            <input class="price-range" id="priceMaxRange" max="1000" min="0" step="1" type="range" value="1000" />
+          </div>
+        </div>
+        <div class="loop-gallery reveal" style="margin-bottom: 20px">
+          <div class="loop-track" id="loopTrack"></div>
+        </div>
+        <div class="products-grid" id="productsContainer"></div>
+        <div class="state-box" id="stateBox" style="display: none"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="dim" id="cartDim"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <button class="cart-btn" id="closeCartBtn" type="button" style="align-self: flex-end; margin: 8px">✕</button>
+    <div class="cart-head">
+      <strong id="cartHeadLabel">Panier</strong>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div style="display: flex; justify-content: space-between; font-weight: 800; margin-bottom: 10px">
+        <span id="cartTotalLabel">Total</span>
+        <span id="cartTotal">0 DT</span>
+      </div>
+      <button class="btn btn-primary" id="checkoutBtn" type="button" style="width: 100%">Valider mes achats</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container"><span id="footerNote">GCA styMode</span> — © <span id="year"></span></div>
+  </footer>
+
+  <script type="module" src="js/catalog-page.js"></script>
+</body>
+</html>

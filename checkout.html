@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valider mes achats — GCA styMode</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu"><span></span></button>
+      <a class="logo" href="index.html">
+        <img src="assets/logo-gca.png" width="48" height="48" alt="GCA styMode" />
+        <span>GCA</span> styMode
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" id="navHome">Accueil</a></li>
+        <li><a href="produits.html" id="navShop">Boutique</a></li>
+        <li><a href="index.html#categories" id="navCategories">Catégories</a></li>
+        <li><a href="index.html#contact" id="navContact">Contact</a></li>
+        <li><a href="produits.html" id="btnAllProducts">Voir tous les produits</a></li>
+        <li class="nav-lang-mobile">
+          <button type="button" class="lang-option nav-lang-opt" data-lang="fr" id="navLangFr">Français</button>
+          <button type="button" class="lang-option nav-lang-opt" data-lang="ar" id="navLangAr">العربية</button>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button type="button" class="lang-toggle" id="langToggleBtn">Français</button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" class="lang-option" data-lang="fr" id="langOptionFr">Français</button>
+            <button type="button" class="lang-option" data-lang="ar" id="langOptionAr">العربية</button>
+          </div>
+        </div>
+        <a class="cart-btn" href="produits.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16" style="flex-shrink:0"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span id="cartLabelText">Panier</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-page container">
+    <h1 class="section-title" id="pageTitle" style="margin-bottom: 8px">Valider mes achats</h1>
+    <p class="section-subtitle" id="pageSub" style="margin-bottom: 24px"></p>
+
+    <div class="checkout-grid">
+      <div class="checkout-card">
+        <h2 style="margin-bottom: 12px; font-size: 1.1rem" id="recapTitle">Récapitulatif</h2>
+        <div id="cartReview"></div>
+      </div>
+      <div>
+        <form id="checkoutForm" class="checkout-card" style="background: #fff">
+          <div class="field">
+            <label for="firstName" id="labelFirst">Prénom</label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="field">
+            <label for="lastName" id="labelLast">Nom</label>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+          </div>
+          <div class="field">
+            <label for="phone" id="labelPhone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required />
+          </div>
+          <div class="field">
+            <label for="address" id="labelAddress">Adresse complète</label>
+            <textarea id="address" name="address" required></textarea>
+          </div>
+          <div class="field">
+            <label for="addressExtra" id="labelExtra">Complément d'adresse</label>
+            <textarea id="addressExtra" name="addressExtra"></textarea>
+          </div>
+          <div class="field">
+            <label for="governorateSelect" id="labelGov">Gouvernorat</label>
+            <select id="governorateSelect" name="governorate" required>
+              <option value="" id="govPlaceholder">Choisir…</option>
+            </select>
+          </div>
+
+          <div class="checkout-summary-row">
+            <span id="lblSubtotal">Prix total articles</span>
+            <span id="subtotalEl">0 DT</span>
+          </div>
+          <div class="checkout-summary-row">
+            <span id="lblShip">Livraison</span>
+            <span id="shippingEl">7 DT</span>
+          </div>
+          <div class="checkout-summary-row grand">
+            <span id="lblGrand">Total à payer</span>
+            <span id="grandTotalEl">7 DT</span>
+          </div>
+
+          <div class="checkout-error" id="checkoutError"></div>
+          <div id="checkoutStatus" style="font-weight: 600; margin: 8px 0"></div>
+
+          <button type="submit" class="btn btn-primary" id="confirmBtn" style="width: 100%; margin-top: 12px">Confirmer</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      GCA styMode — © <span id="year"></span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/checkout-page.js"></script>
+</body>
+</html>
